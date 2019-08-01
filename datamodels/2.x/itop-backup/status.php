@@ -141,7 +141,7 @@ try
 		7 => Dict::S('DayOfWeek-Sunday')
 	);
 	$aDayLabels = array();
-	$oBackupExec = new BackupExec();
+	$oBackupExec = new BackupExecProcess();
 	foreach ($oBackupExec->InterpretWeekDays() as $iDay)
 	{
 		$aDayLabels[] = $aWeekDayToString[$iDay];
@@ -278,7 +278,7 @@ try
 
 	// Do backup now
 	//
-	$oBackupExec = new BackupExec();
+	$oBackupExec = new BackupExecProcess();
 	$oNext = $oBackupExec->GetNextOccurrence();
 	$oP->p(Dict::Format('bkp-next-backup', $aWeekDayToString[$oNext->Format('N')], $oNext->Format('Y-m-d'), $oNext->Format('H:i')));
 	$oP->p('<button onclick="LaunchBackupNow();">'.Dict::S('bkp-button-backup-now').'</button>');
